@@ -1,4 +1,5 @@
 const express = require("express");
+const authenticate = require("../middlewares/authenticate");
 const router = express.Router()
 
 const Apartment = require("../models/apartment.model")
@@ -6,7 +7,7 @@ const crudController = require("./crud.controller")
 
 
 
-router.post("", async (req, res) => {
+router.post("",authenticate, async (req, res) => {
     try {
         const user_id = req.user._id;
         const item = await Apartment.create({
@@ -14,6 +15,7 @@ router.post("", async (req, res) => {
             price: req.body.price,
             user_id
         })
+        return res.status(200).send(item)
         
     } catch (err) {
         return res.status(500).send({Error:err.message})
