@@ -1,6 +1,10 @@
 const mongoose = require("mongoose");
-
-module.exports = () => {
-return mongoose.connect("mongodb://localhost:27017/apartments");
-
+require("dotenv").config();
+const connect = async () => {
+    return mongoose.connect(process.env.MONGODBURL)
+    .catch((e)=>{
+        console.log(e)
+    })
 }
+
+module.exports = connect
