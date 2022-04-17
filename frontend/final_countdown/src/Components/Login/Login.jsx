@@ -10,7 +10,7 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/material/styles';
 import {useState } from "react";
 import {useDispatch , useSelector} from "react-redux"
 import { userData } from '../Redux/LogAction';
@@ -20,10 +20,9 @@ import { useNavigate } from "react-router-dom";
 
 function Copyright(props) {
   return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
+    <Typography variant="body2" align="center" {...props}>
       <Link color="inherit" href="/">
-        Appartment manager
+        Appartment Viewer
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -31,7 +30,6 @@ function Copyright(props) {
   );
 }
 
-const theme = createTheme();
 
 export default function SignIn() {
     const dispatch = useDispatch()
@@ -65,12 +63,12 @@ export default function SignIn() {
   return (<>
     <AppBar position="relative">
         <Toolbar>
-          <Typography variant="h6" color="inherit" noWrap>
-          Appartment manager
+          <Typography variant="h6">
+          Appartment Viewer
           </Typography>
         </Toolbar>
       </AppBar>
-    <ThemeProvider theme={theme}>
+    <ThemeProvider >
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
@@ -81,12 +79,12 @@ export default function SignIn() {
             alignItems: 'center',
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+          <Avatar sx={{ m: 1, bgcolor: 'red' }}>
           </Avatar>
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <Box component="form"  noValidate sx={{ mt: 1 }}>
+          <Box component="form"  noValidate>
             <TextField onChange={getdata}
               margin="normal"
               required
@@ -110,7 +108,6 @@ export default function SignIn() {
             <Button
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
               onClick={ handlechange}
             >
               Sign In
