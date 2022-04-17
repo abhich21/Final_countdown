@@ -62,7 +62,7 @@ export default function SignIn() {
 
 
   return (<>
-    <AppBar position="relative" color="red">
+    <AppBar position="relative" >
         <Toolbar>
           <Typography variant="h6" color="inherit" noWrap>
           Appartment manager
@@ -110,8 +110,7 @@ export default function SignIn() {
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
-              onClick={handlechange}
-              color="red"
+              onClick={ handlechange}
             >
               Sign In
             </Button>
